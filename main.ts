@@ -1,14 +1,16 @@
 input.onButtonPressed(Button.A, function () {
-    speed += -1
+    speed += -10
     basic.showNumber(speed)
     go(Motor, speed)
 })
 input.onButtonPressed(Button.AB, function () {
     Motor = 1 - Motor
     speed = 0
+    Kitronik_Move_Motor.motorOff(Kitronik_Move_Motor.Motors.MotorLeft)
+    Kitronik_Move_Motor.motorOff(Kitronik_Move_Motor.Motors.MotorRight)
 })
 input.onButtonPressed(Button.B, function () {
-    speed += 1
+    speed += 10
     basic.showNumber(speed)
     go(Motor, speed)
 })
@@ -33,6 +35,8 @@ let speed = 0
 let Motor = 0
 let moveMotorZIP = Kitronik_Move_Motor.createMoveMotorZIPLED(4)
 Motor = 0
+Kitronik_Move_Motor.motorOff(Kitronik_Move_Motor.Motors.MotorLeft)
+Kitronik_Move_Motor.motorOff(Kitronik_Move_Motor.Motors.MotorRight)
 basic.forever(function () {
 	
 })
